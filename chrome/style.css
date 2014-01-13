@@ -1,0 +1,67 @@
+* {
+	margin:0;
+	padding:0;
+	font-size:12px;
+}
+
+html {
+	width:14em;
+	height:16em;
+}
+html.opened {
+	height:23em;
+}
+body {
+	width:100%;
+	height:100%;
+	background-color:#333;
+	color:#ccc;
+}
+
+#main {
+	padding:0.5em;
+}
+#main dd {
+	margin:0 0 0.5em;
+}
+#main dt, #main dd {
+	width:13em;
+}
+#mainCode, #siteCode, #password {
+	width:13em;
+}
+#isSaveMainCode {
+	margin:0 0.5em;
+}
+#advSettingLink {
+	cursor:default;
+	margin:0 0 0 1em;
+	color:#99f;
+}
+#advSettingLink:hover {
+	cursor:default;
+	margin:0 0 0 1em;
+	color:#9ff;
+}
+#advSetting {
+	background-color:#666;
+	color:#fff;
+	margin:0;
+}
+#advSetting dt {
+	margin:0;
+}
+#advSetting dt, #advSetting dd {
+	width:13em;
+}
+#sizeBar {
+	width:8em;
+}
+#sizeNum {
+	width:4em;
+}
+
+#mainCode{
+	color:#999;
+	font-style:italic;
+}

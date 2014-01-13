@@ -1,0 +1,41 @@
+﻿<html class="closed">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
+		<title>Strong Password Generator</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<dl id="main">
+			<dt>Master Key</dt>
+			<dd><input id="mainCode" type="password"/></dd>
+			<dd><input id="isSaveMainCode" type="checkbox" tabindex="-1"/>Save Master Key</dd>
+			
+			<dt>Site Key</dt>
+			<dd><input id="siteCode" type="text"/></dd>
+			
+			<dt>Generated Password</dt>
+			<dd><textarea id="password" rows="2" cols="16" readonly="readonly"></textarea></dd>
+			
+			<dt>Advanced Setting <a id="advSettingLink">[+]</a></dt>
+			<dd>
+				<dl id="advSetting">
+					<dt>Password Length</dt>
+					<dd>
+						<input id="sizeBar" type="range" min="4" max="28" value="16"/>
+						<input id="sizeNum" type="number" min="4" max="28" value="16"/>
+					</dd>
+					<dt>Password CharSet</dt>
+					<dd>
+						<input id="charsNumber" type="checkbox" checked="checked"/>0-9
+						<input id="charsLowercase" type="checkbox" checked="checked"/>a-z
+						<input id="charsUppercase" type="checkbox" checked="checked"/>A-Z
+						<input id="charsSymbol" type="checkbox" checked="checked"/>._
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</body>
+</html>
+<script type="text/javascript" src="sha1.js"></script>
+<script type="text/javascript" src="main.js"></script>
