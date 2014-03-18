@@ -1,0 +1,65 @@
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
+		<title>Strong Password Generator</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<dl id="main">
+			<dt>Main Code</dt>
+			<dd>
+				<input id="mainCode" type="password" onkeyup="onMainCodeChanged(this.value);" />
+				<input id="isSaveMainCode" type="checkbox" tabindex="-1" onchange="onSaveMainCodeChanged(this.checked);" />Save Main Code
+			</dd>
+			<dt>Site Code</dt>
+			<dd><input id="siteCode" type="text" onkeyup="onSiteCodeChanged(this.value);" /></dd>
+			<dt>Generated Password</dt>
+			<dd><textarea id="password" rows="2" cols="16" readonly="readonly" onclick="onPasswordClick(this);"></textarea></dd>
+			<dt>Advanced Setting</dt>
+			<dd>
+				<dl id="advSetting">
+					<dt>Password Length</dt>
+					<dd>
+						<select id="size" onChange="onSizeChanged(this.value);">
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+							<option>13</option>
+							<option>14</option>
+							<option>15</option>
+							<option selected="selected">16</option>
+							<option>17</option>
+							<option>18</option>
+							<option>19</option>
+							<option>20</option>
+							<option>21</option>
+							<option>22</option>
+							<option>23</option>
+							<option>24</option>
+							<option>25</option>
+							<option>26</option>
+							<option>27</option>
+							<option>28</option>
+						</select>
+					</dd>
+					<dt>Password CharSet</dt>
+					<dd>
+						<input id="number" type="checkbox" checked="checked" onchange="onCharsChanged();" />0-9
+						<input id="lowercase" type="checkbox" checked="checked" onchange="onCharsChanged();" />a-z
+						<input id="uppercase" type="checkbox" checked="checked" onchange="onCharsChanged();" />A-Z
+						<input id="symbol" type="checkbox" checked="checked" onchange="onCharsChanged();" />._
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</body>
+</html>
+<script type="text/javascript" src="sha1.js"></script>
+<script type="text/javascript" src="main.js"></script>

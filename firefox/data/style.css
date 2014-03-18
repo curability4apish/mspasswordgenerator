@@ -1,0 +1,55 @@
+* {
+    margin:0;
+	padding:0;
+	font-size:12px;
+}
+
+body {
+	background-color:#333;
+	color:#ccc;
+}
+
+#main {
+	margin:0.5em;
+}
+#main dt {
+	margin:1em 0 0 0;
+}
+#main dt, #main dd {
+	width:13em;
+}
+#mainCode, #siteCode, #password {
+	width:13em;
+}
+#isSaveMainCode {
+	margin:0.5em 0.5em 0 0.5em;
+}
+#advSettingLink {
+	cursor:default;
+	margin:0 0 0 1em;
+	color:#99f;
+}
+#advSettingLink:hover {
+	cursor:default;
+	margin:0 0 0 1em;
+	color:#9ff;
+}
+#advSetting {
+	background-color:#666;
+	color:#fff;
+	margin:0;
+}
+#advSetting dt {
+	margin:0;
+}
+#advSetting dt, #advSetting dd {
+	width:13em;
+}
+#size {
+	width:4em;
+}
+
+#mainCode{
+	color:#999;
+	font-style:italic;
+}
