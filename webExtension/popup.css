@@ -3,28 +3,29 @@
 	padding:0;
 	font-size:12px;
 	
-	line-height:1.5;
 	box-sizing:border-box;
 	
 	vertical-align:middle;
 }
 
-html {
-	background-color:#666;
-	color:#fff;
-}
-
 body {
-	width:14.75rem;
-	height:14.25rem;
+	width:14.5em;
+	height:100%;
 	background-color:#fff;
 	color:#333;
-	border:0.125em solid #fff;
 	
 	box-sizing:content-box;
 }
-html[isOpen="true"] body {
-	height:22rem;
+html[env="chrome"] {
+	width:14.5em;
+	height:15em;
+}
+html[env="chrome"][isOpen="true"] {
+	height:22.5em;
+}
+html[env="firefox"] body {
+	height:22.5em;
+	border:0.125em solid #fff;
 }
 
 #main {

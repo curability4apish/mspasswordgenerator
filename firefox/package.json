@@ -1,1 +1,0 @@
-{"license": "", "description": "Quickly generate a strong password for a specific site.", "contributors": [], "author": "Ayukawayen", "url": "", "dependencies": ["api-utils", "addon-kit"], "version": "initial.rev21", "lib": "lib", "fullName": "Strong Password Generator", "main": "main", "id": "jid0-51zu1eGJ1yAdzfGPQRY9AwnFSBM", "name": "strong-password-generator"}
