@@ -6,7 +6,7 @@
 		}
 	},
 	"name": "MS Password Generator",
-	"version": "3.0",
+	"version": "3.0.2",
 	"description": "Create a unique password for each site and service.",
 	"icons": {
 		"19":"image/icon_19.png",

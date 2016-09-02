@@ -15,7 +15,7 @@ html {
 }
 
 body {
-	width:14.75rem;
+	width:11.75rem;
 	height:14.25rem;
 	background-color:#fff;
 	color:#333;
@@ -24,7 +24,7 @@ body {
 	box-sizing:content-box;
 }
 html[isOpen="true"] body {
-	height:22rem;
+	height:22.25rem;
 }
 
 #main {
@@ -34,10 +34,10 @@ html[isOpen="true"] body {
 	background-color:#333;
 	color:#ccc;
 }
-#main >dd {
-	margin:0 0 0.5rem;
+#main >dt {
+	margin:0.5rem 0 0;
 }
-#main >dd:last-of-type {
+#main >dt:first-of-type {
 	margin:0;
 }
 #main >dt, #main >dd {
