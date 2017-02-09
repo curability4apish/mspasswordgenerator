@@ -23,7 +23,7 @@ html[env="chrome"] {
 html[env="chrome"][isOpen="true"] {
 	height:23.75em;
 }
-html[env="firefox"] body {
+html[env="firefox"][isOpen="true"] body {
 	height:23.25em;
 	border:0.125em solid #fff;
 }
