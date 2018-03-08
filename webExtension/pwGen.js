@@ -45,7 +45,7 @@ PwGen.setMasterHash = function(value) {
 	this.updateDigest();
 };
 PwGen.setSiteKey = function(value) {
-	this.siteKey = value;
+	this.siteKey = value.toLowerCase();
 	this.updateDigest();
 };
 PwGen.setSize = function(value) {

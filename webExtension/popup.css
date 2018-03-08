@@ -23,9 +23,12 @@ html[env="chrome"] {
 html[env="chrome"][isOpen="true"] {
 	height:23.75em;
 }
+html[env="firefox"] body {
+	height:15.25em;
+	border:0.125em solid #fff;
+}
 html[env="firefox"][isOpen="true"] body {
 	height:23.25em;
-	border:0.125em solid #fff;
 }
 
 #main {
@@ -46,6 +49,7 @@ html[env="firefox"][isOpen="true"] body {
 }
 #masterKey, #siteKey, #password {
 	width:100%;
+	padding:0 0.25rem;
 }
 #password {
 	height:2.5rem;
