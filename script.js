@@ -12,6 +12,7 @@ function addEventListener() {
 	document.querySelector('#advSettingLink').addEventListener('click', onAdvSettingLinkClick);
 	
 	document.querySelector('#password').addEventListener('click', onPasswordClick);
+	document.querySelector('#password').addEventListener('focusout', onPasswordFocusOut);
 };
 
 
@@ -47,8 +48,12 @@ function onAdvSettingLinkClick(e) {
 
 function onPasswordClick(e) {
 	document.querySelector('#password').select();
+	document.execCommand('copy');
+	document.querySelector('#copied').textContent = 'Password copied!';
 };
-
+function onPasswordFocusOut(e) {
+	document.querySelector('#copied').textContent = '';
+};
 
 PwGen.addListener((pw)=>{
 	if(PwGen.siteKey.length <= 0) {

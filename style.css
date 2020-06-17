@@ -16,7 +16,7 @@ html {
 
 body {
 	width:11.75rem;
-	height:14.25rem;
+	height:15.75rem;
 	background-color:#fff;
 	color:#333;
 	border:0.125em solid #fff;
@@ -24,7 +24,7 @@ body {
 	box-sizing:content-box;
 }
 html[isOpen="true"] body {
-	height:22.25rem;
+	height:23.75rem;
 }
 
 #main {
@@ -48,6 +48,11 @@ html[isOpen="true"] body {
 }
 #password {
 	height:2.5rem;
+}
+#copied {
+	height:1.5rem;
+	text-align:right;
+	font-style:italic;
 }
 #isSavremaseterKey {
 	margin:0 0.5rem;

@@ -18,17 +18,17 @@ body {
 	box-sizing:content-box;
 }
 html[env="chrome"] {
-	height:15.75em;
+	height:17.25em;
 }
 html[env="chrome"][isOpen="true"] {
-	height:23.75em;
+	height:25.25em;
 }
 html[env="firefox"] body {
-	height:15.25em;
+	height:16.75em;
 	border:0.125em solid #fff;
 }
 html[env="firefox"][isOpen="true"] body {
-	height:23.25em;
+	height:24.75em;
 }
 
 #main {
@@ -53,6 +53,11 @@ html[env="firefox"][isOpen="true"] body {
 }
 #password {
 	height:2.5rem;
+}
+#copied {
+	height:1.5rem;
+	text-align:right;
+	font-style:italic;
 }
 #isSavremaseterKey {
 	margin:0 0.5rem;
