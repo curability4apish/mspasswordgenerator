@@ -1,6 +1,6 @@
 function addEventListener() {
-	document.querySelector('#masterKey').addEventListener('keyup', onMasterKeyKeyup);
-	document.querySelector('#isSaveMasterKey').addEventListener('change', onIsSaveMasterKeyChange);
+	document.querySelector('#mainKey').addEventListener('keyup', onMainKeyKeyup);
+	document.querySelector('#isSaveMainKey').addEventListener('change', onIsSaveMainKeyChange);
 	document.querySelector('#siteKey').addEventListener('keyup', onSiteKeyKeyup);
 	document.querySelector('#size').addEventListener('input', onSizeInput);
 	
@@ -17,15 +17,15 @@ function addEventListener() {
 };
 
 
-function onMasterKeyKeyup(e) {
-	PwGen.setMasterKey(document.querySelector('#masterKey').value);
-	if(document.querySelector('#isSaveMasterKey').checked) {
-		saveMasterHash();
+function onMainKeyKeyup(e) {
+	PwGen.setMainKey(document.querySelector('#mainKey').value);
+	if(document.querySelector('#isSaveMainKey').checked) {
+		saveMainHash();
 	}
 };
-function onIsSaveMasterKeyChange(e) {
-	if(document.querySelector('#isSaveMasterKey').checked) {
-		saveMasterHash();
+function onIsSaveMainKeyChange(e) {
+	if(document.querySelector('#isSaveMainKey').checked) {
+		saveMainHash();
 	}
 	else {
 		localStorage.removeItem('pw.seed');
@@ -101,22 +101,22 @@ function saveSiteCfg() {
 };
 
 
-function loadMasterHash() {
+function loadMainHash() {
 	let hash = localStorage.getItem('pw.seed');
 	if(!hash) {
-		document.querySelector('#masterKey').focus();
+		document.querySelector('#mainKey').focus();
 		return;
 	}
 	
-	PwGen.setMasterHash(hash);
+	PwGen.setMainHash(hash);
 	
-	document.querySelector('#masterKey').setAttribute('placeholder', 'Change Saved Key');
-	document.querySelector('#isSaveMasterKey').checked = true;
+	document.querySelector('#mainKey').setAttribute('placeholder', 'Change Saved Key');
+	document.querySelector('#isSaveMainKey').checked = true;
 	document.querySelector('#siteKey').focus();
 };
-function saveMasterHash() {
-	if(PwGen.masterHash) {
-		localStorage.setItem('pw.seed', PwGen.masterHash);
+function saveMainHash() {
+	if(PwGen.mainHash) {
+		localStorage.setItem('pw.seed', PwGen.mainHash);
 	}
 };
 
@@ -139,5 +139,5 @@ PwGen.addListener((pw)=>{
 	}
 	document.querySelector('#password').value = pw;
 });
-loadMasterHash();
+loadMainHash();
 addEventListener();

@@ -47,7 +47,7 @@ html[env="firefox"][isOpen="true"] body {
 #main >dt, #main >dd {
 	width:100%;
 }
-#masterKey, #siteKey, #password {
+#mainKey, #siteKey, #password {
 	width:100%;
 	padding:0 0.25rem;
 }

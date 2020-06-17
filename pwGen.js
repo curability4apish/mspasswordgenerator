@@ -1,5 +1,5 @@
 var PwGen = {
-	masterHash:'',
+	mainHash:'',
 	siteKey:'',
 	chars:'',
 	size:16,
@@ -35,13 +35,13 @@ PwGen.addListener = function(l) {
 	this.listeners.push(l);
 };
 
-PwGen.setMasterKey = function(value) {
+PwGen.setMainKey = function(value) {
 	value = wrapper.wrap16(sha1.digest(value), ')!@#$%^&*(ABCDEF');
 	value = wrapper.wrap16(sha1.digest(value), ')!@#$%^&*(ABCDEF');
-	this.setMasterHash(value);
+	this.setMainHash(value);
 };
-PwGen.setMasterHash = function(value) {
-	this.masterHash = value;
+PwGen.setMainHash = function(value) {
+	this.mainHash = value;
 	this.updateDigest();
 };
 PwGen.setSiteKey = function(value) {
@@ -92,7 +92,7 @@ PwGen.setIsForceAllSet = function(value) {
 };
 
 PwGen.updateDigest = function() {
-	this.digest = sha1.digest(this.masterHash+this.siteKey);
+	this.digest = sha1.digest(this.mainHash+this.siteKey);
 	
 	this.updatePassword();
 };

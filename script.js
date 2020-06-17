@@ -1,5 +1,5 @@
 function addEventListener() {
-	document.querySelector('#masterKey').addEventListener('keyup', onMasterKeyKeyup);
+	document.querySelector('#mainKey').addEventListener('keyup', onMainKeyKeyup);
 	document.querySelector('#siteKey').addEventListener('keyup', onSiteKeyKeyup);
 	document.querySelector('#size').addEventListener('input', onSizeInput);
 	
@@ -16,8 +16,8 @@ function addEventListener() {
 };
 
 
-function onMasterKeyKeyup(e) {
-	PwGen.setMasterKey(document.querySelector('#masterKey').value);
+function onMainKeyKeyup(e) {
+	PwGen.setMainKey(document.querySelector('#mainKey').value);
 };
 function onSiteKeyKeyup(e) {
 	let siteKey = document.querySelector('#siteKey').value;
