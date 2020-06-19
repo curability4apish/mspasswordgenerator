@@ -10,33 +10,25 @@
 }
 
 body {
-	width:11.75rem;
-	height:100%;
-	background-color:#fff;
-	color:#333;
+	width:12.5rem;
+	border:solid 1px #fff;
 	
-	box-sizing:content-box;
+	background-color:#333;
+	color:#ccc;
 }
+
 html[env="chrome"] {
 	height:17.25em;
 }
 html[env="chrome"][isOpen="true"] {
 	height:25.25em;
 }
-html[env="firefox"] body {
-	height:16.75em;
-	border:0.125em solid #fff;
-}
-html[env="firefox"][isOpen="true"] body {
-	height:24.75em;
-}
+
+
 
 #main {
 	width:100%;
-	height:100%;
 	padding:0.25rem;
-	background-color:#333;
-	color:#ccc;
 }
 #main >dt {
 	margin:0.5rem 0 0;
@@ -49,7 +41,6 @@ html[env="firefox"][isOpen="true"] body {
 }
 #mainKey, #siteKey, #password {
 	width:100%;
-	padding:0 0.25rem;
 }
 #password {
 	height:2.5rem;
@@ -63,8 +54,8 @@ html[env="firefox"][isOpen="true"] body {
 	margin:0 0.5rem;
 }
 #advSettingLink {
+	float:right;
 	cursor:default;
-	margin:0 0 0 1rem;
 	color:#99f;
 }
 #advSettingLink:hover {

@@ -2,11 +2,11 @@
 	"applications": {
 		"gecko": {
 			"id": "mspassword@Ayukawayen.net",
-			"strict_min_version": "45.0"
+			"strict_min_version": "57.0"
 		}
 	},
 	"name": "MS Password Generator",
-	"version": "3.2.1",
+	"version": "3.3.0",
 	"description": "Create a unique password for each site and service.",
 	"icons": {
 		"19":"image/icon_19.png",
