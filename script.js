@@ -22,6 +22,11 @@ function onMainKeyKeyup(e) {
 function onSiteKeyKeyup(e) {
 	let siteKey = document.querySelector('#siteKey').value;
 	PwGen.setSiteKey(siteKey);
+	
+	if(e.keyCode == 13) {
+		onPasswordClick();
+		//window.close();
+	}
 };
 function onSizeInput(e) {
 	let size = document.querySelector('#size').value;
