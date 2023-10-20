@@ -20,7 +20,7 @@ function onMainKeyKeyup(e) {
 	PwGen.setMainKey(document.querySelector('#mainKey').value);
 };
 function onSiteKeyKeyup(e) {
-	let siteKey = document.querySelector('#siteKey').value;
+	let siteKey = document.querySelector('#siteKey').value.toLowerCase();
 	PwGen.setSiteKey(siteKey);
 	
 	if(e.keyCode == 13) {
