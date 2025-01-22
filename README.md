@@ -6,7 +6,7 @@ Download the root directory [here](https://github.com/download-directory/downloa
 ## Changelog
 * Remove memorability of `Main Key`
 
-This feature stores `Main Key` in plaintext in `localStorage` and poses security concern. So, the checkbox and access to localStorage has been removed. It's a trade-off for security.
+This feature stores `Main Key` in plaintext in `localStorage` and poses security concern. The checkbox and accessibility to localStorage has been removed as a trade-off for security.
 
 * Salting
 
