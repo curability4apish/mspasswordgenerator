@@ -8,7 +8,7 @@ This feature stores `Main Key` in plaintext in `localStorage` poses security con
 
 * Salting
 
-Recommend users to configure their salt in `pwGen.js` to enhanec complexity and prevent pre-calculated attack in case your `Main Key` is very weak.
+Recommend users to configure their unique salt in `pwGen.js` to enhanec complexity and prevent pre-calculated attack in case your `Main Key` is very weak. But that doesn't mean you can have easily guessable `Main Key`.
 
 ```
 PwGen.updateDigest = function() {
