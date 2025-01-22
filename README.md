@@ -1,6 +1,5 @@
 ## About
-Forked from Ayukawayen/MSPasswordGenerator.
-
+Forked from [Ayukawayen/MSPasswordGenerator](https://github.com/curability4apish/Traceless-Vault/blob/master/README-MSPasswordGenerator.md).
 ## Changelog
 * Remove memorability of `Main Key`
 
