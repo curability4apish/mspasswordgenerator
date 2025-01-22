@@ -4,7 +4,7 @@ Forked from Ayukawayen/MSPasswordGenerator.
 ## Changelog
 * Remove memorability of `Main Key`
 
-This feature stores 'Main Key` in plaintext in `localStorage` poses security concern. So, the checkbox and access to localStorage has been removed. It's a trade-off for security.
+This feature stores `Main Key` in plaintext in `localStorage` poses security concern. So, the checkbox and access to localStorage has been removed. It's a trade-off for security.
 
 * Salting
 
