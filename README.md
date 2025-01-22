@@ -1,1 +1,5 @@
-Forked from [Ayukawayen/MSPasswordGenerator](https://github.com/Ayukawayen/MSPasswordGenerator). To enhance security, the original SHA-1 algorithm in [sha1.js](https://github.com/curability4apish/MSPasswordGenerator-sha256/blob/master/sha1.js) is replaced with SHA-256 algorithm with the help of Github Copilot. Names of any objects, sha1 for example, haven't changed. The algorithm needs rigorous inspection.
+## About
+Names of any objects, sha1 for example, haven't changed.
+
+## Plans
+The encryption algorithm needs rigorous inspection., and the logging functionality should be disabled.
