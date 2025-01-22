@@ -13,7 +13,7 @@ This feature stores `Main Key` in plaintext in `localStorage` and poses security
 
 * Salting
 
-Recommend users to their unique `salt` in `pwGen.js` to add an extra protection and prevent pre-calculated attack in case your `Main Key` is very weak. But that doesn't mean you can allow `Main Key` to be weak, because `salt` is stored in plaintext.
+Recommend users set their unique `salt` in `pwGen.js` to add an extra protection and prevent pre-calculated attack in case your `Main Key` is very weak. But that doesn't mean you can allow `Main Key` to be weak, because `salt` is stored in plaintext.
 
 ```
 PwGen.updateDigest = function() {
