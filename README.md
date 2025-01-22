@@ -17,6 +17,7 @@ PwGen.updateDigest = function() {
 	this.updatePassword();
 };
 ```
+Please see my another [repository](https://github.com/curability4apish/BogoTRNG) for salt generation.
 * Encryption Algorithm
 
 SHA-1 has been replaced with SHA-256.
