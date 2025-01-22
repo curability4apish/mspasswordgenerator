@@ -36,8 +36,8 @@ PwGen.addListener = function(l) {
 };
 
 PwGen.setMainKey = function(value) {
-	value = wrapper.wrap16(sha1.digest(value), ')!@#$%^&*(ABCDEF');
-	value = wrapper.wrap16(sha1.digest(value), ')!@#$%^&*(ABCDEF');
+	value = wrapper.wrap16(sha256.digest(value), ')!@#$%^&*(ABCDEF');
+	value = wrapper.wrap16(sha256.digest(value), ')!@#$%^&*(ABCDEF');
 	this.setMainHash(value);
 };
 PwGen.setMainHash = function(value) {
@@ -45,7 +45,7 @@ PwGen.setMainHash = function(value) {
 	this.updateDigest();
 };
 PwGen.setSiteKey = function(value) {
-	this.siteKey = value;
+	this.siteKey = value.toLowerCase();
 	this.updateDigest();
 };
 PwGen.setSize = function(value) {
@@ -92,7 +92,7 @@ PwGen.setIsForceAllSet = function(value) {
 };
 
 PwGen.updateDigest = function() {
-	this.digest = sha1.digest(this.mainHash+this.siteKey);
+	this.digest = sha256.digest(this.mainHash+this.siteKey+ "72b94155d407cb150d7ef2940b4b69f2813c4295d5976caa51fdb8ac2082a510");
 	
 	this.updatePassword();
 };
@@ -109,4 +109,3 @@ PwGen.updatePassword = function() {
 		item(pw);
 	});
 };
-
