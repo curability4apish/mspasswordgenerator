@@ -1,0 +1,45 @@
+<html class='closed'>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=8' />
+        <title>MS Password Generator</title>
+        <link rel='stylesheet' type='text/css' href='popup.css' />
+    </head>
+    <body>
+        <dl id='main'>
+            <dt>Main Key</dt>
+            <dd><input id='mainKey' type='password'/></dd>
+            <!-- Removed the checkbox element for 'Save Main Key' -->
+            
+            <dt>Site Key</dt>
+            <dd><input id='siteKey' type='text'/></dd>
+            
+            <dt>Generated Password</dt>
+            <dd><textarea id='password' rows='2' cols='28' readonly='readonly'></textarea></dd>
+            <dd><div id='copied'></div></dd>
+            
+            <dt>Advanced Setting <a id='advSettingLink'>[+]</a></dt>
+            <dd>
+                <dl id='advSetting'>
+                    <dt>Password Length</dt>
+                    <dd>
+                        <input id='size' type='range' min='4' max='28' value='16'/>
+                        <input id='sizeValue' type='text' readonly='readonly' value='16'/>
+                    </dd>
+                    <dt>Password CharSet</dt>
+                    <dd id='charset'>
+                        <input type='checkbox' checked='checked'/>0-9
+                        <input type='checkbox' checked='checked'/>a-z
+                        <input type='checkbox' checked='checked'/>A-Z
+                        <input type='checkbox' checked='checked'/>._
+                    </dd>
+                    <dd><input id='isForceAllSet' type='checkbox' />Use all selected sets</dd>
+                </dl>
+            </dd>
+        </dl>
+    </body>
+</html>
+<script type='text/javascript' src='sha256.js'></script>
+<script type='text/javascript' src='cfgAdapter.js'></script>
+<script type='text/javascript' src='pwGen.js'></script>
+<script type='text/javascript' src='popup.js'></script>
