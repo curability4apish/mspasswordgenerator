@@ -12,7 +12,7 @@ Recommend users to configure their salt in `pwGen.js` to enhanec complexity and 
 
 ```
 PwGen.updateDigest = function() {
-	this.digest = sha256.digest(this.mainHash+this.siteKey+ "`Your 64-bit salt`");
+	this.digest = sha256.digest(this.mainHash+this.siteKey+ "Your 64-bit salt");
 	
 	this.updatePassword();
 };
