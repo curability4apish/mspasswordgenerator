@@ -19,7 +19,7 @@ PwGen.updateDigest = function() {
 ```
 * Encryption Algorithm
 
-SHA-1 has been replaced by SHA-256.
+SHA-1 has been replaced with SHA-256.
 
 ## Plans
 * The encryption algorithm needs rigorous inspection.
