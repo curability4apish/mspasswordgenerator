@@ -1,52 +1,61 @@
-var sha1 = {};
+var sha256 = {};
 
-sha1.digest = function(str) {
+sha256.digest = function(str) {
+    // Step 1: Convert the string to bytes, then pad it
     let bs = this.padding(this.toBytes(str));
+    // Step 2: Convert the padded byte array to words
     let ws = this.toWords(bs);
+    // Step 3: Process the words and return the final digest
     let digest = this.process(ws);
     
     return digest;
 };
 
-sha1.toBytes = function(str) {
+sha256.toBytes = function(str) {
     let result = [];
-    for(let i = 0; i < str.length; ++i) {
+    // Convert each character in the string to its ASCII byte value
+    for (let i = 0; i < str.length; ++i) {
         result.push(str.charCodeAt(i));
     }
     return result;
 };
 
-sha1.padding = function(bs) {
-    let len = bs.length * 8;
-    let padLen = (Math.ceil((len + 65) / 512) * 512 - 64 - len) / 8;
+sha256.padding = function(bs) {
+    let len = bs.length * 8;  // Length of the input message in bits
+    let padLen = (Math.ceil((len + 65) / 512) * 512 - 64 - len) / 8;  // Calculate the padding length
 
-    bs.push(0x80);
-    for(let i = 1; i < padLen; ++i) {
+    bs.push(0x80);  // Add the 0x80 byte (0x10000000 in binary, the padding indicator)
+    
+    // Add zero bytes until the message is 64 bits short of a multiple of 512 bits
+    for (let i = 1; i < padLen; ++i) {
         bs.push(0);
     }
     
-    for(let i = 0; i < 4; ++i) {
+    // Add the 64-bit length of the original message (high 32 bits and low 32 bits)
+    for (let i = 0; i < 4; ++i) {
         bs.push(0);
     }
-    for(let i = 0; i < 4; ++i) {
-        bs.push((len >> 8 * (7 - i)) & 0xff);
+    for (let i = 0; i < 4; ++i) {
+        bs.push((len >> 8 * (3 - i)) & 0xff);
     }
+    
     return bs;
 };
 
-sha1.toWords = function(bs) {
+sha256.toWords = function(bs) {
     let len = bs.length / 4;
     let ws = [];
-    for(let i = 0; i < len; ++i) {
+    // Convert the byte array into 32-bit words
+    for (let i = 0; i < len; ++i) {
         ws[i] = 0;
-        for(let j = 0; j < 4; ++j) {
+        for (let j = 0; j < 4; ++j) {
             ws[i] |= (bs[i * 4 + j] << ((3 - j) * 8));
         }
     }
     return ws;
 };
 
-sha1.process = function(ws) {
+sha256.process = function(ws) {
     let h0 = 0x6a09e667;
     let h1 = 0xbb67ae85;
     let h2 = 0x3c6ef372;
@@ -57,16 +66,21 @@ sha1.process = function(ws) {
     let h7 = 0x5be0cd19;
     let a, b, c, d, e, f, g, h;
 
-    for(let wi = 0; wi < ws.length; wi += 16) {
+    // Process each 512-bit block (16 words)
+    for (let wi = 0; wi < ws.length; wi += 16) {
         let w = [];
-        for(let i = 0; i < 16; ++i) {
+        for (let i = 0; i < 16; ++i) {
             w[i] = ws[wi + i];
         }
-        for(let i = 16; i < 64; ++i) {
-            let s0 = this.rotl(w[i - 15], 25) ^ this.rotl(w[i - 15], 14) ^ (w[i - 15] >>> 3);
-            let s1 = this.rotl(w[i - 2], 15) ^ this.rotl(w[i - 2], 13) ^ (w[i - 2] >>> 10);
+
+        // Extend the 16 words into 64 words
+        for (let i = 16; i < 64; ++i) {
+            let s0 = this.rotr(w[i - 15], 7) ^ this.rotr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+            let s1 = this.rotr(w[i - 2], 17) ^ this.rotr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
             w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
         }
+
+        // Initialize the working variables
         a = h0;
         b = h1;
         c = h2;
@@ -76,11 +90,12 @@ sha1.process = function(ws) {
         g = h6;
         h = h7;
 
-        for(let i = 0; i < 64; ++i) {
-            let s1 = this.rotl(e, 26) ^ this.rotl(e, 21) ^ this.rotl(e, 7);
+        // Main loop (64 rounds)
+        for (let i = 0; i < 64; ++i) {
+            let s1 = this.rotr(e, 6) ^ this.rotr(e, 11) ^ this.rotr(e, 25);
             let ch = (e & f) ^ ((~e) & g);
             let temp1 = (h + s1 + ch + this.k[i] + w[i]) | 0;
-            let s0 = this.rotl(a, 30) ^ this.rotl(a, 19) ^ this.rotl(a, 10);
+            let s0 = this.rotr(a, 2) ^ this.rotr(a, 13) ^ this.rotr(a, 22);
             let maj = (a & b) ^ (a & c) ^ (b & c);
             let temp2 = (s0 + maj) | 0;
 
@@ -94,6 +109,7 @@ sha1.process = function(ws) {
             a = (temp1 + temp2) | 0;
         }
 
+        // Update the hash values
         h0 = (h0 + a) | 0;
         h1 = (h1 + b) | 0;
         h2 = (h2 + c) | 0;
@@ -104,14 +120,16 @@ sha1.process = function(ws) {
         h7 = (h7 + h) | 0;
     }
 
+    // Return the final hash (digest)
     return [h0, h1, h2, h3, h4, h5, h6, h7];
 };
 
-sha1.rotl = function(w, len) {
-    return (w << len) | (w >>> (32 - len));
+sha256.rotr = function(w, len) {
+    // Right rotation (circular shift) function
+    return (w >>> len) | (w << (32 - len));
 };
 
-sha1.k = [
+sha256.k = [
     0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
     0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
@@ -132,36 +150,40 @@ sha1.k = [
 
 var wrapper = {};
 
-wrapper.wrap16 = function(ws, chars, length){
+wrapper.wrap16 = function(ws, chars, length) {
     chars = chars || '0123456789abcdef';
-    while(chars.length < 16) {
+    // Ensure chars is long enough
+    while (chars.length < 16) {
         chars += chars;
     }
     
     let result = '';
-    ws.forEach((w)=>{
-        for(let i = 0; i < 8; ++i) {
+    // Convert each word into a hexadecimal string
+    ws.forEach((w) => {
+        for (let i = 0; i < 8; ++i) {
             let ci = (w >> ((7 - i) * 4)) & 0xf;
             result += chars[ci];
         }
     });
 
-    if(length) {
+    // Truncate to the desired length if specified
+    if (length) {
         result = result.substring(0, length);
     }
     return result;
 };
 
-wrapper.wrap64 = function(ws, chars, length){
+wrapper.wrap64 = function(ws, chars, length) {
     chars = chars || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._';
-    while(chars.length < 64) {
+    // Ensure chars is long enough
+    while (chars.length < 64) {
         chars += chars;
     }
     
     let result = '';
-    
     let bs = [];
-    ws.forEach((w)=>{
+    // Split each word into two 16-bit parts
+    ws.forEach((w) => {
         bs.push((w >> 16) & 0xffff);
         bs.push(w & 0xffff);
     });
@@ -170,17 +192,18 @@ wrapper.wrap64 = function(ws, chars, length){
     let buffer = 0;
     let bufferLen = 0;
     
-    bs.forEach((b, i, a)=>{
+    bs.forEach((b, i, a) => {
         buffer |= (b << bufferLen);
         bufferLen += 16;
-        while(bufferLen >= ((i >= a.length - 1) ? 1 : 6) ) {
+        while (bufferLen >= ((i >= a.length - 1) ? 1 : 6)) {
             result = chars[buffer & 0x3f] + result;
             buffer >>= 6;
             bufferLen -= 6;
         }
     });
 
-    if(length) {
+    // Truncate to the desired length if specified
+    if (length) {
         result = result.substring(0, length);
     }
     return result;
