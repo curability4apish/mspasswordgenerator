@@ -1,7 +1,22 @@
 ## About
-Forked from Ayukawayen/MSPasswordGenerator. To enhance security, the original SHA-1 algorithm in sha1.js is replaced with SHA-256 algorithm with the help of Github Copilot. Names of any objects, sha1 for example, haven't changed.
+Forked from Ayukawayen/MSPasswordGenerator.
+
+## Changelog
+* Remove memorability of `Main Key`
+
+This feature stores 'Main Key` in plaintext in `localStorage` poses security concern. So, the checkbox and access to localStorage has been removed. It's a trade-off for security.
+
+* Salting
+
+Recommend users to configure their salt in `pwGen.js` to enhanec complexity and prevent pre-calculated attack in case your `Main Key` is very weak.
+
+```
+PwGen.updateDigest = function() {
+	this.digest = sha256.digest(this.mainHash+this.siteKey+ "`Your 64-bit salt`");
+	
+	this.updatePassword();
+};
+```
 
 ## Plans
 * The encryption algorithm needs rigorous inspection.
-* Logging should be disabled.
-* Password storage needs encryption.
