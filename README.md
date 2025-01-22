@@ -1,5 +1,5 @@
 ## About
-Forked from [Ayukawayen/MSPasswordGenerator](https://github.com/curability4apish/Traceless-Vault/blob/master/README-MSPasswordGenerator.md). Traceless-Vault is a high-strength password generator that creates unique, high-strength passwords for each network service, reducing the damage that can be done when a single site's password is compromised. It doesn't require internet or `localStorage`, which make your password management genuinely traceless.
+Forked from [Ayukawayen/MSPasswordGenerator](https://github.com/curability4apish/Traceless-Vault/blob/master/README-MSPasswordGenerator-en.md). Traceless-Vault is a high-strength password generator that creates unique, high-strength passwords for each network service, reducing the damage that can be done when a single site's password is compromised. It doesn't require internet or `localStorage`, which make your password management genuinely traceless.
 
 Download the root directory [here](https://github.com/download-directory/download-directory.github.io).
 
