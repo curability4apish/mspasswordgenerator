@@ -29,4 +29,4 @@ SHA-1 has been replaced with SHA-256.
 
 ## Plans
 * The encryption algorithm needs rigorous inspection.
-* sha256 will be replaced with sha512.
+* Change sha256 to original sha1 if I have no idea on the evaluation of the algorithm.
