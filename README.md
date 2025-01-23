@@ -4,7 +4,8 @@ Forked from [Ayukawayen/MSPasswordGenerator](https://github.com/curability4apish
 Download the root directory [here](https://github.com/download-directory/download-directory.github.io).
 
 ## Demo
-![image](https://github.com/user-attachments/assets/454cbd4e-0864-4e09-9ff9-d09dbb65b66a)
+![image](https://github.com/user-attachments/assets/d250879f-9e0f-4011-a6c3-45b06cc9650d)
+
 
 ## Warnings
 This repository is still in beta. If the leak of your passwords can pose threat to your safety, privacy or property, you should enable two-factor authentication.
